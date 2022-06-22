@@ -1,0 +1,318 @@
+{
+  "root": true,
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  // allowed global variables
+  "globals": {
+    "angular": true,
+    "jQuery": true,
+    "$": true,
+    "lodash": true
+  },
+  // Start using ESLint recommended rules
+  "extends": [
+    "eslint:recommended"
+  ],
+  // Project specific rules
+  "rules": {
+    // Checks effect dependencies
+    // http://eslint.org/docs/rules/indent
+    "indent": [
+      "error",
+      2
+    ],
+    "block-scoped-var": "error",
+    "radix": "error",
+    "one-var": [
+      "error",
+      {
+        "var": "always",
+        "let": "never",
+        "const": "never"
+      }
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "argsIgnorePattern": "^_.*"
+      }
+    ],
+    "no-extra-boolean-cast": "error",
+    "quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "eqeqeq": [
+      "error",
+      "always"
+    ],
+    // use of semicolons
+    "semi": [
+      "error",
+      "always"
+    ],
+    "semi-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    // rules about spaces
+    "no-whitespace-before-property": "error",
+    "space-before-blocks": [
+      "error",
+      "always"
+    ],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "never"
+      }
+    ],
+    "keyword-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "no-multi-spaces": "error",
+    "no-trailing-spaces": "error",
+    // rules about brace style
+    "curly": [
+      "error",
+      "all"
+    ],
+    "brace-style": [
+      "error",
+      "1tbs",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    // one True Brace Style
+    "object-curly-spacing": [
+      "off",
+      "always"
+    ],
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+      }
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 180,
+        "tabWidth": 2,
+        "ignoreTrailingComments": true,
+        "ignoreComments": true,
+        "ignoreUrls": true,
+        "ignorePattern": "^import [^,]+ from |^export | implements",
+        "ignoreRegExpLiterals": true
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.js"
+      ],
+      "rules": {
+        "no-prototype-builtins": 0,
+        "no-redeclare": [
+          "error",
+          {
+            "builtinGlobals": false
+          }
+        ]
+      }
+    },
+    {
+      // enable the rule specifically for TypeScript files
+      // https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin/docs/rules
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./tsconfig.json",
+        "allowAutomaticSingleRunInference": true,
+        "ecmaFeatures": {
+          "jsx": true // Allows for the parsing of JSX
+        }
+      },
+      "settings": {
+        "react": {
+          "version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
+        }
+      },
+      "plugins": [
+        "@typescript-eslint",
+        "react-hooks",
+        "jsx-a11y"
+      ],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:jsx-a11y/recommended"
+      ],
+      "rules": {
+        // rules about jsDoc
+        "require-jsdoc": [
+          "error",
+          {
+            "require":
+            {
+              "FunctionDeclaration": true,
+              "MethodDefinition": true,
+              "ClassDeclaration": true,
+              "ArrowFunctionExpression": true,
+              "FunctionExpression": true
+            }
+          }
+        ],
+        "react-hooks/rules-of-hooks": "error",
+        // Check rules of Hooks
+        "react-hooks/exhaustive-deps": "warn",
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@typescript-eslint/no-unsafe-member-access": "warn",
+        "@typescript-eslint/no-unsafe-assignment": "warn",
+        "@typescript-eslint/no-unsafe-call": "warn",
+        "@typescript-eslint/explicit-function-return-type": [
+          "error"
+        ],
+        "@typescript-eslint/typedef": [
+          "error",
+          {
+            "parameter": true,
+            "arrowParameter": true,
+            "propertyDeclaration": true,
+            "variableDeclaration": true,
+            "memberVariableDeclaration": true,
+            "variableDeclarationIgnoreFunction": true
+          }
+        ],
+        "@typescript-eslint/array-type": [
+          "error",
+          {
+            "default": "generic"
+          }
+        ],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "variable",
+            "format": [
+              "camelCase",
+              "PascalCase"
+            ],
+            "leadingUnderscore": "allow"
+          }
+        ],
+        "@typescript-eslint/adjacent-overload-signatures": "error",
+        "@typescript-eslint/ban-types": [
+          "error",
+          {
+            "types": {
+              "Object": {
+                "message": "Avoid using the `Object` type. Did you mean `object`?"
+              },
+              "Function": {
+                "message": "Avoid using the `Function` type. Prefer a specific function type, like `() => void`."
+              },
+              "Boolean": {
+                "message": "Avoid using the `Boolean` type. Did you mean `boolean`?"
+              },
+              "Number": {
+                "message": "Avoid using the `Number` type. Did you mean `number`?"
+              },
+              "String": {
+                "message": "Avoid using the `String` type. Did you mean `string`?"
+              },
+              "Symbol": {
+                "message": "Avoid using the `Symbol` type. Did you mean `symbol`?"
+              }
+            }
+          }
+        ],
+        "@typescript-eslint/consistent-type-assertions": "error",
+        "@typescript-eslint/consistent-type-definitions": "error",
+        "@typescript-eslint/dot-notation": "error",
+        "@typescript-eslint/explicit-member-accessibility": "error",
+        "@typescript-eslint/indent": [
+          "error",
+          2,
+          {
+            "FunctionDeclaration": {
+              "parameters": "first"
+            },
+            "FunctionExpression": {
+              "parameters": "first"
+            }
+          }
+        ],
+        "@typescript-eslint/member-ordering": "error",
+        "@typescript-eslint/no-empty-function": "error",
+        "@typescript-eslint/no-empty-interface": "error",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/no-misused-new": "error",
+        "@typescript-eslint/no-namespace": "error",
+        "@typescript-eslint/no-parameter-properties": "off",
+        "@typescript-eslint/no-shadow": [
+          "error",
+          {
+            "hoist": "all"
+          }
+        ],
+        "@typescript-eslint/no-unused-expressions": "error",
+        "@typescript-eslint/no-use-before-define": "off",
+        "@typescript-eslint/no-var-requires": "error",
+        "@typescript-eslint/prefer-for-of": "error",
+        "@typescript-eslint/prefer-function-type": "error",
+        "@typescript-eslint/prefer-namespace-keyword": "error",
+        "@typescript-eslint/quotes": [
+          "error",
+          "single"
+        ],
+        "@typescript-eslint/semi": [
+          "error",
+          "always"
+        ],
+        "@typescript-eslint/triple-slash-reference": [
+          "error",
+          {
+            "path": "always",
+            "types": "prefer-import",
+            "lib": "always"
+          }
+        ],
+        "@typescript-eslint/type-annotation-spacing": "error",
+        "@typescript-eslint/unified-signatures": "error"
+      }
+    }
+  ]
+}
