@@ -15,7 +15,7 @@ export interface EvButtonProps<T extends ElementType = 'button'> extends AriaBas
   className?: string
 }
 
-function Button<T extends ElementType = 'button'>(props: EvButtonProps<T>, ref: FocusableRef<HTMLElement>) {
+function Button<T extends ElementType = 'button'>(props: EvButtonProps<T>, ref: FocusableRef<HTMLElement>): JSX.Element {
   let {
     elementType: ElementType = 'button',
     children,
@@ -23,10 +23,10 @@ function Button<T extends ElementType = 'button'>(props: EvButtonProps<T>, ref: 
     isDisabled,
     autoFocus
   } = props;
-  let domRef = useFocusableRef(ref);
-  let {buttonProps, isPressed} = useButton(props, domRef);
-  let {hoverProps, isHovered} = useHover({isDisabled});
-  let buttonVariant = variant || 'default';
+  const domRef = useFocusableRef(ref);
+  const {buttonProps, isPressed} = useButton(props, domRef);
+  const {hoverProps, isHovered} = useHover({isDisabled});
+  const buttonVariant = variant || 'default';
 
   return (
     <FocusRing focusRingClass={'focus-ring'} autoFocus={autoFocus}>
@@ -35,7 +35,7 @@ function Button<T extends ElementType = 'button'>(props: EvButtonProps<T>, ref: 
         ref={domRef}
         className={
           classNames(
-            'btn btn-sm',
+            'btn',
             `btn-${buttonVariant}`,
             {
               'is-disabled': isDisabled,
@@ -46,8 +46,8 @@ function Button<T extends ElementType = 'button'>(props: EvButtonProps<T>, ref: 
           )
         }>
         {typeof children === 'string'
-            ? <Text>{children}</Text>
-            : children}
+          ? <Text>{children}</Text>
+          : children}
       </ElementType>
     </FocusRing>
   );
@@ -58,5 +58,5 @@ function Button<T extends ElementType = 'button'>(props: EvButtonProps<T>, ref: 
  * They have multiple styles for various needs, and are ideal for calling attention to
  * where a user needs to do something in order to move forward in a flow.
  */
-let _Button = React.forwardRef(Button) as <T extends ElementType = 'button'>(props: EvButtonProps<T> & {ref?: FocusableRef<HTMLElement>}) => ReactElement;
+const _Button = React.forwardRef(Button) as <T extends ElementType = 'button'>(props: EvButtonProps<T> & {ref?: FocusableRef<HTMLElement>}) => ReactElement;
 export {_Button as Button};

@@ -1,7 +1,12 @@
+import React from 'react';
 import { Button } from './lib/button';
 // import { MyButton } from '../dist/es/index.js';
 
-function App() {
+/**
+ * App
+ * @returns
+ */
+function App(): JSX.Element {
 
   return (
     <div className="App">
