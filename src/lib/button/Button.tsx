@@ -1,4 +1,4 @@
-import { useState, FunctionComponent } from 'react';
+import React, { useState, FunctionComponent } from 'react';
 
 const MyButton: FunctionComponent = (): JSX.Element => {
   const [count, setCount] = useState(0);
