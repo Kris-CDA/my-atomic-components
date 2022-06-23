@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, FunctionComponent } from 'react';
 
-const MyButton = () => {
+const MyButton: FunctionComponent = (): JSX.Element => {
   const [count, setCount] = useState(0);
 
   return (
@@ -8,6 +8,6 @@ const MyButton = () => {
     count is: {count}
     </button>
   );
-}
+};
 
 export default MyButton;
