@@ -22,6 +22,7 @@
   // FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
   // @see https://github.com/typescript-eslint/typescript-eslint/issues/1551
   "exclude": [
-    "dist/**/*"
+    "dist/**/*",
+    "node_modules/**/*"
   ]
 }

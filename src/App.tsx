@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button } from './lib/button';
+import {Button} from './lib/button';
+
 // import { MyButton } from '../dist/es/index.js';
 
 /**
