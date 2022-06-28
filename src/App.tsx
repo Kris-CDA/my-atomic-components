@@ -1,5 +1,8 @@
+import { Item } from '@react-spectrum/combobox';
+import { Provider } from '@react-spectrum/provider';
+import { theme } from '@react-spectrum/theme-default';
 import React from 'react';
-import { Button } from './lib/button';
+import { EvComboBox } from './lib/combobox';
 // import { MyButton } from '../dist/es/index.js';
 
 /**
@@ -10,7 +13,16 @@ function App(): JSX.Element {
 
   return (
     <div className="App">
-      <Button variant={'primary'}>Hello</Button>
+      <Provider theme={theme}>
+      <EvComboBox label="Favorite Animal">
+        <Item key="red panda">Red Panda</Item>
+        <Item key="cat">Cat</Item>
+        <Item key="dog">Dog</Item>
+        <Item key="aardvark">Aardvark</Item>
+        <Item key="kangaroo">Kangaroo</Item>
+        <Item key="snake">Snake</Item>
+      </EvComboBox>
+      </Provider>
     </div>
   );
 }
