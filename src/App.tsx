@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from './lib/button';
+import { EvButton } from './lib/button';
 // import { MyButton } from '../dist/es/index.js';
 
 /**
@@ -10,7 +10,7 @@ function App(): JSX.Element {
 
   return (
     <div className="App">
-      <Button variant={'primary'}>Hello</Button>
+      <EvButton variant={'primary'}>Hello</EvButton>
     </div>
   );
 }
