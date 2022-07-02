@@ -1,7 +1,7 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import prefresh from '@prefresh/vite';
+import preact from '@preact/preset-vite';
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
@@ -11,8 +11,8 @@ export default defineConfig({
         jsxInject: `import { h, Fragment } from 'preact'`,
       },
     plugins: [
-        react(),
-        prefresh(),
+        //react(),
+        preact(),
         dts({
             insertTypesEntry: true,
         }),
