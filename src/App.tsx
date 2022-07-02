@@ -10,7 +10,7 @@ function App(): JSX.Element {
 
   return (
     <div className="App">
-      <EvButton variant={'primary'}>Hello</EvButton>
+      <EvButton variant={'primary'} UNSAFE_className="zaza">Hello</EvButton>
     </div>
   );
 }

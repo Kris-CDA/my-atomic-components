@@ -2,12 +2,20 @@ import React, {ElementType, ReactElement} from 'react';
 import {FocusableRef} from '@react-types/shared';
 import {SpectrumButtonProps} from '@react-types/button';
 import { Button, Provider, lightTheme } from '@adobe/react-spectrum';
+import classNames from 'classnames';
 
 function EvButton<T extends ElementType = 'button'>(props: SpectrumButtonProps<T>, ref: FocusableRef<HTMLElement>): JSX.Element {
 
+  const buttonVariant = props.variant || 'default';
   return (
     <Provider theme={lightTheme} UNSAFE_className='ev-provider'>
-      <Button {...props} ref={ref} UNSAFE_className='ev-button'></Button>
+      <Button {...props} ref={ref} UNSAFE_className={
+        classNames(
+          'ev-button',
+          `btn btn-${buttonVariant}`,
+          props.UNSAFE_className
+        )
+      }></Button>
     </Provider>
   );
 }
