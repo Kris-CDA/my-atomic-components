@@ -1,7 +1,8 @@
 Importer un Web Component PReact dans un autre projet
 --------
 // Avant de suivre ces étapes, lancer la commande *npm run build* 
-pour générer un repertoire "dist" dans le projet où le Web Component a été créé
+pour générer un repertoire "dist" dans le projet où le Web Component a été créé.
+Le répertoire **"dist"** doit contenir une dossier **"lib"** contenant la liste des composants, un fichier index.d.ts et trois différents types de modules exportables. 
 
 1) Créer un nouveau projet test.
 2) Insérer le fichier *'style.css'* du repertoire **"dist"** dans ce nouveau projet test.
